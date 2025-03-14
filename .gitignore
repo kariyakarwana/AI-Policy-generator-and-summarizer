@@ -1,0 +1,5 @@
+# Ignore Lib and Scripts folders (if not inside venv/)
+Lib/
+Scripts/
+
+

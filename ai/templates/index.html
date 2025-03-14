@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Summarizer & Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h2 { color: #7f49db; }
+        form { margin-bottom: 20px; }
+        textarea { width: 100%; height: 100px; }
+        .output { border: 1px solid #9fdc61; padding: 10px; margin-top: 20px; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Upload a Policy Document for Summarization</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="policy_pdf" required>
+        <button type="submit">Summarize</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="error">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+
+    {% if summary %}
+    <div class="output">
+        <h3>Summary:</h3>
+        <p>{{ summary }}</p>
+    </div>
+    {% endif %}
+
+    <h2>Enter a Scenario for Policy Generation</h2>
+    <form action="/generate_policy" method="post">
+        <textarea name="user_scenario" placeholder="Enter your policy scenario here..."></textarea>
+        <button type="submit">Generate Policy</button>
+    </form>
+
+    {% if generated_policy %}
+    <div class="output">
+        <h3>Generated Policy:</h3>
+        <p>{{ generated_policy }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
