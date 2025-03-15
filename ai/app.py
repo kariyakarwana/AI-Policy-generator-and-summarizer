@@ -97,7 +97,7 @@ def summarize_text(text, max_length=150):
 def generate_policy(prompt):
     try:
         # Use a supported model (e.g., "gemini-pro")
-        model = genai.GenerativeModel("gemini-pro")
+        model = genai.GenerativeModel("gemini-1.5-pro")
         response = model.generate_content(prompt)
         return response.text if response.text else "No policy generated."
     except Exception as e:

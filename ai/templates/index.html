@@ -5,21 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Policy Summarizer & Generator</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        h2 { color: #7f49db; }
-        form { margin-bottom: 20px; }
-        textarea { width: 100%; height: 100px; }
-        .output { border: 1px solid #9fdc61; padding: 10px; margin-top: 20px; }
-        .error { color: red; font-weight: bold; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h2 {
+            color: #7f49db;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .output {
+            border: 1px solid #9fdc61;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .output h3 {
+            color: #7f49db;
+            margin-top: 0;
+        }
+        .output p {
+            white-space: pre-wrap; /* Preserve line breaks and formatting */
+            line-height: 1.6;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .upload-section, .scenario-section {
+            margin-bottom: 40px;
+        }
+        .upload-section input[type="file"] {
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #7f49db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #6a3dbb;
+        }
     </style>
 </head>
 <body>
-    <h2>Upload a Policy Document for Summarization</h2>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="policy_pdf" required>
-        <button type="submit">Summarize</button>
-    </form>
+    <h1>Policy Summarizer & Generator</h1>
 
+    <!-- File Upload Section -->
+    <div class="upload-section">
+        <h2>Upload a Policy Document for Summarization</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="policy_pdf" required>
+            <button type="submit">Summarize</button>
+        </form>
+    </div>
+
+    <!-- Flash Messages for Errors -->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
         <div class="error">
@@ -30,6 +90,7 @@
     {% endif %}
     {% endwith %}
 
+    <!-- Summary Output -->
     {% if summary %}
     <div class="output">
         <h3>Summary:</h3>
@@ -37,12 +98,16 @@
     </div>
     {% endif %}
 
-    <h2>Enter a Scenario for Policy Generation</h2>
-    <form action="/generate_policy" method="post">
-        <textarea name="user_scenario" placeholder="Enter your policy scenario here..."></textarea>
-        <button type="submit">Generate Policy</button>
-    </form>
+    <!-- Scenario Input Section -->
+    <div class="scenario-section">
+        <h2>Enter a Scenario for Policy Generation</h2>
+        <form action="/generate_policy" method="post">
+            <textarea name="user_scenario" placeholder="Enter your policy scenario here..."></textarea>
+            <button type="submit">Generate Policy</button>
+        </form>
+    </div>
 
+    <!-- Generated Policy Output -->
     {% if generated_policy %}
     <div class="output">
         <h3>Generated Policy:</h3>
