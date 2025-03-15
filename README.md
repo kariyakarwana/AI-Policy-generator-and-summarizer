@@ -122,12 +122,6 @@ A web application that uses **Natural Language Processing (NLP)** techniques to 
 
 ---
 
-## YouTube Video
-
-Watch the [YouTube Shorts video](https://youtube.com/shorts/your-video-id) showcasing the application's functionality.
-
----
-
 ## Contributing
 
 Contributions are welcome! Please follow these steps:
