@@ -1,6 +1,3 @@
-Here’s a well-structured and professional **README.md** file for your GitHub repository. It includes all the necessary details about your project, its functionality, and the technologies used.
-
----
 
 ```markdown
 # Economic Policy Summarizer and Generator
