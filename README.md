@@ -1,6 +1,3 @@
-Here’s a well-structured and professional **README.md** file for your GitHub repository. It includes all the necessary details about your project, its functionality, and the technologies used.
-
----
 
 ```markdown
 # Economic Policy Summarizer and Generator
@@ -119,12 +116,6 @@ A web application that uses **Natural Language Processing (NLP)** techniques to 
 
 ### Generated Policy Output
 ![Generated Policy Output](https://via.placeholder.com/800x400.png?text=Generated+Policy+Output)
-
----
-
-## YouTube Video
-
-Watch the [YouTube Shorts video](https://youtube.com/shorts/your-video-id) showcasing the application's functionality.
 
 ---
 
